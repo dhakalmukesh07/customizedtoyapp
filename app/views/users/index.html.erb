@@ -1,0 +1,50 @@
+<p id="notice"><%= notice %></p> 
+<div class="header">
+
+<div class="header-right">
+By Mukesh
+</div>
+   <div class="header-left">
+
+    <a class="active" href="http://localhost:3000">Users</a>
+    <a href="http://localhost:3000/microposts">Posts</a>
+    <a href="http://localhost:3000/static_pages/register">Static Page</a>
+    <a href="http://localhost:3000/static_pages/help">Signup</a>
+  </div>
+</div>
+</header>
+<div class="form">
+
+  <h1>Users</h1>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th colspan="3">Operations</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @users.each do |user| %>
+      <tr>
+        <td><%= user.name %></td>
+        <td><%= user.email %></td>
+        <td><%= link_to 'Show', user %></td>
+        <td><%= link_to 'Edit', edit_user_path(user) %></td>
+        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+
+  <%= link_to 'New User', new_user_path %>
+  <br>
+  <%= link_to 'New Micropost', new_micropost_path %>
+  <br>
+
+</div>
+
